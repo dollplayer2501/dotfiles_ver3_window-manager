@@ -1,0 +1,6 @@
+*
+!.gitignore
+!picom.conf
+!my_rules.conf
+!README.md
+!picom.conf.example
