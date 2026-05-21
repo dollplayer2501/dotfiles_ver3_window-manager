@@ -1,0 +1,242 @@
+"""
+Built-in Layouts
+================
+
+The layout that can be used is set for each workspace.
+For group settings, see `./modules/groups.py`.
+
+https://docs.qtile.org/en/stable/manual/ref/layouts.html
+"""
+
+# from libqtile import layout
+from qtile_extras import layout
+#
+from modules.variables import font_set
+from theme_colors import Theme_Colors
+#
+from modules.functions import set_trans_color
+
+
+#
+# https://docs.qtile.org/en/stable/manual/ref/layouts.html#columns
+#
+layout_setting_columns = {
+  'border_width': 1,
+  'margin': [1, 1, 1, 1],
+  'border_on_single': True,
+  # NOTE: First, place 2 windows side by side, second, Mod4 + n
+  'initial_ratio': 0.5,
+
+  'border_focus': Theme_Colors['Oreange'],
+  'border_focus_stack': Theme_Colors['Debug'],
+  'border_normal': Theme_Colors['LightBlue'],
+  'border_normal_stack': Theme_Colors['Debug'],
+}
+
+#
+# https://docs.qtile.org/en/stable/manual/ref/layouts.html#floating
+#
+layout_setting_floating = {
+  'border_width': 10,
+  'fullscreen_border_width': 0,
+  'max_border_width': 10,
+
+  'border_focus': Theme_Colors['Oreange'],
+  'border_normal': Theme_Colors['Purple'],
+}
+
+#
+# https://docs.qtile.org/en/stable/manual/ref/layouts.html#matrix
+#
+layout_setting_matrix = {
+  'border_width': 1,
+  'margin': 0,
+
+  'border_focus': Theme_Colors['Oreange'],
+  'border_normal': Theme_Colors['Purple'],
+}
+
+#
+# https://docs.qtile.org/en/stable/manual/ref/layouts.html#max
+#
+layout_setting_max = {
+  'border_width': 0,
+  'margin': [0, 0, 0, 0],
+  'only_focused': True,
+
+  'border_focus': Theme_Colors['Oreange'],
+  'border_normal': Theme_Colors['Purple'],
+}
+
+#
+# https://docs.qtile.org/en/stable/manual/ref/layouts.html#monadtall
+#
+layout_setting_monadTall = {
+  'border_width': 2,
+  'margin': 2,
+  'ratio': 0.7,
+
+  'single_border_width': 0,
+  'single_margin': 0,
+
+  'border_focus': set_trans_color(Theme_Colors['Oreange'], '22'),
+  'border_normal': set_trans_color(Theme_Colors['Purple'], '22'),
+}
+
+#
+# https://docs.qtile.org/en/stable/manual/ref/layouts.html#monadwide
+#
+layout_setting_monadWide = {
+  'border_width': 2,
+  'margin': 2,
+  'ratio': 0.6,
+
+  'single_border_width': 0,
+  'single_margin': 0,
+
+  'border_focus': set_trans_color(Theme_Colors['Oreange'], '22'),
+  'border_normal': set_trans_color(Theme_Colors['Purple'], '22'),
+}
+
+#
+# https://docs.qtile.org/en/stable/manual/ref/layouts.html#treetab
+#
+layout_setting_treeTab = {
+
+  'active_bg': set_trans_color(Theme_Colors['Purple'], '66'),
+  'active_fg': Theme_Colors['Oreange'],
+  'bg_color': set_trans_color(Theme_Colors['DarkBlue_default'], 'cc'),
+
+  'border_width': 1,
+  'font': font_set['sub1'],
+  'fontshadow': None,
+  'fontsize': 16,
+  'inactive_bg': set_trans_color(Theme_Colors['DarkBlue_lighten'], 'ee'),
+  'inactive_fg': Theme_Colors['LightBlue'],
+  'level_shitf': 0,
+  'margin_left': 0,
+  'margin_y': 100,
+  'padding_left': 0,
+  'padding_x': 0,
+  'padding_y': 0,
+  # 'panel_width': 450,
+  'place_right': False,
+  'previous_on_rm': False,
+
+  'section_bottom': 20,
+  'section_fg': Theme_Colors['Purple'],
+  'section_fontsize': 16,
+  'section_left': 100,
+  'section_padding': 10,
+  'section_top': 100,
+  'sections': ['TreeTab', 'I dont understand', 'This layout settings'],
+
+  'urgent_bg': Theme_Colors['Red'],
+  'urgent_fg': Theme_Colors['DarkBlue_default'],
+  'vspace': 10,
+}
+
+#
+# https://docs.qtile.org/en/stable/manual/ref/layouts.html#verticaltile
+#
+layout_setting_verticalTile = {
+  'border_width': 1,
+  'margin': [1, 10, 1, 100],
+  'single_border_width': 1,
+  'single_margin': [1, 1, 2, 500],
+
+  'border_focus': Theme_Colors['Oreange'],
+  'border_normal': Theme_Colors['Purple'],
+}
+
+
+#
+# This is Qtile-Extras
+#  https://qtile-extras.readthedocs.io/en/stable/manual/ref/layouts.html#plasma
+#
+layout_setting_plasma = {
+  'border_focus': '#00e891',
+  'border_focus_fixed': '#00e8dc',
+  'border_normal': '#333333',
+  'border_normal_fixed': '#333333',
+  'name': 'PlasmaX',
+}
+
+
+
+layouts = [
+
+  layout.Columns(
+    **layout_setting_columns,
+  ),
+
+  layout.Floating(
+    **layout_setting_floating,
+  ),
+
+  layout.Matrix(
+    **layout_setting_matrix,
+  ),
+
+  layout.Max(
+    **layout_setting_max,
+  ),
+
+  layout.MonadTall(
+    **layout_setting_monadTall,
+  ),
+
+  layout.MonadWide(
+    **layout_setting_monadWide,
+  ),
+
+  layout.TreeTab(
+    **layout_setting_treeTab,
+  ),
+
+  layout.VerticalTile(
+    **layout_setting_verticalTile,
+  ),
+
+  layout.Plasma(
+    **layout_setting_plasma,
+  ),
+
+  # layout.Tile(
+  #   border_width = 1,
+  #   border_focus = Theme_Colors['Oreange'],
+  #   border_normal = Theme_Colors['LightBlue'],
+  #   margin = [1, 1, 1, 1],
+  #   add_after_last = True,
+  #   add_on_top = False,
+  #   border_on_single = False,
+  #   expand = True,
+  #   ratio = 0.4,
+  #   shift_windows = True,
+  #   master_length = 1,
+  # ),
+
+
+  # layout.Bsp(),
+  # layout.Columns(),
+  # layout.Floating(),
+  # layout.Matrix(),
+  # layout.Max(),
+  # layout.MonadTall(),
+  # layout.MonadThreeCol(),
+  # layout.MonadWide(),
+  # layout.Plasma(),
+  # layout.RatioTile(),
+  # layout.ScreenSplit(),
+  # layout.Slice(),
+  # layout.Spiral(),
+  # layout.Stack(),
+  # layout.Tile(),
+  # layout.TreeTab(),
+  # layout.VerticalTile(),
+  # layout.Zoomy(),
+]
+
+
+##
+

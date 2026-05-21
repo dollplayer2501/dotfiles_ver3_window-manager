@@ -1,0 +1,7 @@
+# EditorConfig is awesome: https://editorconfig.org
+
+[*]
+trim_trailing_whitespace = true
+
+[*.md]
+trim_trailing_whitespace = false
