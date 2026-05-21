@@ -12,5 +12,5 @@ The following is a general overview of this environment:
 - First, I install the Xfce4 environment.
 - Next, I install Qtile, which I use as my main tool.
 
-
+<img src="./Chandanna_EndeavourOS_Qtile_2026-05-21_13-26-45.png" width="500">
 
