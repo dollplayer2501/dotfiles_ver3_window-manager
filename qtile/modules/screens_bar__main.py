@@ -295,7 +295,8 @@ screen_main = Screen(
         background = Theme_Colors['DarkBlue_default'],
       ),
 
-      widget.Volume(
+      # NOTE: This requires aur/python-pulsectl-asyncio
+      widget.PulseVolume(
         emoji = False,
 
         fmt = '<small>Vol</small> {}',
@@ -305,21 +306,33 @@ screen_main = Screen(
         fontsize = 16,
         font = font_set['main'],
 
-        # pactl get-default-sink
-        # device = 'alsa_output.pci-0000_04_00.6.analog-stereo',
-
-        mouse_callbacks = {
-          'Button1': lambda: qtile.spawn('pactl set-sink-mute @DEFAULT_SINK@ toggle'),
-          'Button3': lambda: qtile.spawn('pavucontrol'),
-          'Button4': lambda: qtile.spawn('pactl set-sink-volume @DEFAULT_SINK@ +5%'),
-          'Button5': lambda: qtile.spawn('pactl set-sink-volume @DEFAULT_SINK@ -5%'),
-        },
-
         foreground = Theme_Colors['LightBlue'],
         background = Theme_Colors['DarkBlue_default'],
- 
+
         **common_powerline,
       ),
+
+      # NOTE: The following code will likely not function correctly going forward.
+      #       The specific symptom is that the current volume level is not displayed correctly.
+      # widget.Volume(
+      #   emoji = False,
+      #   fmt = '<small>Vol</small> {}',
+      #   mute_format = 'Mute',
+      #   padding = 4,
+      #   fontsize = 16,
+      #   font = font_set['main'],
+      #   # pactl get-default-sink
+      #   # device = 'alsa_output.pci-0000_04_00.6.analog-stereo',
+      #   mouse_callbacks = {
+      #     'Button1': lambda: qtile.spawn('pactl set-sink-mute @DEFAULT_SINK@ toggle'),
+      #     'Button3': lambda: qtile.spawn('pavucontrol'),
+      #     'Button4': lambda: qtile.spawn('pactl set-sink-volume @DEFAULT_SINK@ +5%'),
+      #     'Button5': lambda: qtile.spawn('pactl set-sink-volume @DEFAULT_SINK@ -5%'),
+      #   },
+      #   foreground = Theme_Colors['LightBlue'],
+      #   background = Theme_Colors['DarkBlue_default'],
+      #   **common_powerline,
+      # ),
 
       # INFO: NB Systray is incompatible with Wayland, consider using StatusNotifier instead
       # widget.StatusNotifier(),
