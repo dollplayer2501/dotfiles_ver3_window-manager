@@ -23,6 +23,7 @@ floating_layout = layout.Floating(
     *layout.Floating.default_float_rules,
 
     Match(wm_class = 'Xfce4-settings-manager'),
+    Match(wm_class = 'Org.xfce.mousepad'),
     Match(wm_class = 'Wrapper-2.0'),
     Match(wm_class = 'org.gnome.FileRoller'),
     Match(wm_class = 'GParted'),
