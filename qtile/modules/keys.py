@@ -133,6 +133,7 @@ keys = [
       Key([],      'o', lazy.spawn('libreoffice'), desc = 'Run LibreOffice'),
       #
       Key([],      'n', lazy.spawn('notable'), desc = 'Run Notable'),
+      Key([],      'p', lazy.spawn('mousepad'), desc = 'Run mousePad'),
       Key([],      's', lazy.spawn('flatpak run com.valvesoftware.Steam'), desc = 'Run Steam'),
     ],
     mode = False,
