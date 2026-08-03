@@ -106,6 +106,7 @@ groups = [
       Match(wm_class = 'libreoffice-writer'),
 
       Match(wm_class = 'Gimp'),
+      Match(wm_class = 'Inkscape'),
       Match(wm_class = 'steam'),
       Match(wm_class = 'Virt-manager'),
       Match(wm_class = 'GParted'),

@@ -127,14 +127,18 @@ keys = [
       Key([SHIFT], 'f', lazy.spawn('nautilus'), desc = 'Run Nautilus'),
       # Video
       Key([],      'v', lazy.spawn('vlc'), desc = 'Run VLC'),
-      # Graphic
+      # Graphic, Raster format
       Key([],      'g', lazy.spawn('gimp'), desc = 'Run Gimp'),
+      # Graphic, Vector format
+      Key([],      'i', lazy.spawn('inkscape'), desc = 'Run Inkscape'),
+
       # Office
       Key([],      'o', lazy.spawn('libreoffice'), desc = 'Run LibreOffice'),
       #
       Key([],      'n', lazy.spawn('notable'), desc = 'Run Notable'),
       Key([],      'p', lazy.spawn('mousepad'), desc = 'Run mousePad'),
       Key([],      's', lazy.spawn('flatpak run com.valvesoftware.Steam'), desc = 'Run Steam'),
+      Key([],      't', lazy.spawn('kitty'), desc = 'Run Kitty'),
     ],
     mode = False,
     name = 'Applications',
