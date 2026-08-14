@@ -57,7 +57,7 @@ font_set = {
 
 default_wallpaper = '/usr/share/endeavouros/backgrounds/endeavouros-wallpaper.png'
 custom_icon_path = [
-  os.path.expanduser('~/.config/qtile/icons')
+  os.path.expanduser('~/.config/qtile/icons/layout-icons')
 ]
 
 
