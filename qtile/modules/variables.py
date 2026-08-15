@@ -56,13 +56,14 @@ font_set = {
 #
 
 default_wallpaper = '/usr/share/endeavouros/backgrounds/endeavouros-wallpaper.png'
-custom_icon_path = [
+custom_layout_icon_path = [
   os.path.expanduser('~/.config/qtile/icons/layout-icons')
 ]
+custom_popup_icon_path = os.path.expanduser('~/.config/qtile/icons/popup-icons')
 
 
 #
-# Only the Japanese era name, Reiwa, is supported.
+# Japanese era name, `Reiwa` is supported.
 #
 
 current_date_time = datetime.now()
@@ -78,7 +79,4 @@ workspace_main = ['1', '2', '3', '4', '5', '9',]
 workspace_sub = ['6', '7', '8',] # This does not use
 
 
-
-
 ##
-

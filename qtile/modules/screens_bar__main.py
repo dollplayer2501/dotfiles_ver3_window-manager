@@ -26,7 +26,7 @@ from qtile_extras import widget
 from modules.variables import (
   font_set,
   current_gengou_reiwa,
-  custom_icon_path,
+  custom_layout_icon_path,
   workspace_main,
 )
 from modules.screens_bar___common import (
@@ -85,7 +85,7 @@ screen_main = Screen(
         padding = 4,
         scale = 0.8,
 
-        custom_icon_paths = custom_icon_path,
+        custom_icon_paths = custom_layout_icon_path,
         foreground = Theme_Colors['Debug'],
         background = Theme_Colors['DarkBlue_default'],
       ),

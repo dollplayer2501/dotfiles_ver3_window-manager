@@ -5,16 +5,21 @@ Popup, qtile-extras
 https://qtile-extras.readthedocs.io/en/v0.27.0/manual/how_to/popup.html#using-widgets-in-a-popup
 """
 
+import os
+#
 from libqtile import widget
 from libqtile.lazy import lazy
 #
 from qtile_extras.popup import (
     PopupRelativeLayout,
     PopupImage,
-    PopupText
-)
+    PopupText,
+  )
 #
-from modules.variables import font_set
+from modules.variables import (
+    font_set,
+    custom_popup_icon_path,
+  )
 from theme_colors import Theme_Colors
 
 
@@ -47,7 +52,7 @@ def show_power_menu(qtile):
     # 1. Screensaver
     PopupImage(
       pos_x = 0.15,
-      filename = '~/.config/qtile/icons/svgrepo-com-zzz.svg',
+      filename = os.path.join(custom_popup_icon_path, 'svgrepo-com-zzz.svg'),
       mouse_callbacks = {
         'Button1': lazy.spawn('xfce4-screensaver-command --activate')
       },
@@ -56,7 +61,7 @@ def show_power_menu(qtile):
     # 2. Logout
     PopupImage(
       pos_x = 0.35,
-      filename = '~/.config/qtile/icons/svgrepo-com-exit-point.svg',
+      filename = os.path.join(custom_popup_icon_path, 'svgrepo-com-exit-point.svg'),
       mouse_callbacks = {
         'Button1': lazy.shutdown()
       },
@@ -65,7 +70,7 @@ def show_power_menu(qtile):
     # 3. Power off
     PopupImage(
       pos_x = 0.55,
-      filename = '~/.config/qtile/icons/svgrepo-com-power.svg',
+      filename = os.path.join(custom_popup_icon_path, 'svgrepo-com-power.svg'),
       mouse_callbacks = {
         'Button1': lazy.spawn('systemctl poweroff')
       },
@@ -74,7 +79,7 @@ def show_power_menu(qtile):
     # 4. Reboot
     PopupImage(
       pos_x = 0.75,
-      filename = '~/.config/qtile/icons/svgrepo-com-restart.svg',
+      filename = os.path.join(custom_popup_icon_path, 'svgrepo-com-restart.svg'),
       mouse_callbacks = {
         'Button1': lazy.spawn('systemctl reboot')
       },
@@ -117,16 +122,6 @@ def show_power_menu(qtile):
   )
 
   layout.show(centered = True)
-
-
-
-
-
-
-
-
-
-
 
 
 

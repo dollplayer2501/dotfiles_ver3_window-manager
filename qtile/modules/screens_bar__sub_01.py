@@ -13,7 +13,7 @@ from qtile_extras import widget
 #
 from modules.variables import (
   font_set,
-  custom_icon_path,
+  custom_layout_icon_path,
 )
 from modules.screens_bar___common import (
   common_powerline,
@@ -41,7 +41,7 @@ screen_sub_01 = Screen(
       #   padding = 0,
       #   fontsize = 16,
       #   font = font_set['sub2'],
-      #   # custom_icon_paths = custom_icon_path,
+      #   # custom_icon_paths = custom_layout_icon_path,
       #   foreground = Theme_Colors['Oreange'],
       #   background = Theme_Colors['DarkBlue_default'],
       # ),
@@ -50,7 +50,7 @@ screen_sub_01 = Screen(
         padding = 4,
         scale = 0.8,
 
-        custom_icon_paths = custom_icon_path,
+        custom_icon_paths = custom_layout_icon_path,
         foreground = Theme_Colors['Debug'],
         background = Theme_Colors['DarkBlue_default'],
       ),

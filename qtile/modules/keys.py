@@ -92,6 +92,8 @@ keys = [
 
   Key([MOD4],          'r', lazy.spawncmd(),      desc = 'Spawn a command using a prompt widget'),
   Key([MOD4, CONTROL], 'r', lazy.reload_config(), desc = 'Reload the config'),
+  # TODO: Instead of executing this immediately, perhaps introduce something like Zenity to add an intermediate step?
+  Key([MOD4, CONTROL], 'q', lazy.shutdown(),      desc = 'Logout session'),
 
 
   Key([MOD4], TAB,    lazy.next_layout(),            desc = 'Toggle between layouts'),
