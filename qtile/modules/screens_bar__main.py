@@ -308,6 +308,7 @@ screen_main = Screen(
 
         foreground = Theme_Colors['LightBlue'],
         background = Theme_Colors['DarkBlue_default'],
+        mute_foreground = Theme_Colors['Oreange'],
 
         **common_powerline,
       ),
