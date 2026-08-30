@@ -133,36 +133,37 @@ keys = [
       Key([],      'g', lazy.spawn('gimp'), desc = 'Run Gimp'),
       # Graphic, Vector format
       Key([],      'i', lazy.spawn('inkscape'), desc = 'Run Inkscape'),
-
       # Office
       Key([],      'o', lazy.spawn('libreoffice'), desc = 'Run LibreOffice'),
       #
       Key([],      'n', lazy.spawn('notable'), desc = 'Run Notable'),
-      Key([],      'p', lazy.spawn('mousepad'), desc = 'Run mousePad'),
       Key([],      's', lazy.spawn('flatpak run com.valvesoftware.Steam'), desc = 'Run Steam'),
       Key([],      't', lazy.spawn('kitty'), desc = 'Run Kitty'),
+      Key([],      'z', lazy.spawn('mousepad'), desc = 'Run mousepad'),
     ],
     mode = False,
     name = 'Applications',
   ),
 
 
-  KeyChord([MOD4], 'c', [
-      # NOTE: When running anything other than Kitty, pressing Mod4+Return launches xfce4-terminal.
-      # NOTE: The reason is unknown.
-      Key([], 'a', lazy.spawn('alacritty'),      desc = 'Run Alacritty'),
-      Key([], 'g', lazy.spawn('ghostty'),        desc = 'Run Ghostty'),
-      Key([], 'k', lazy.spawn('kitty'),          desc = 'Run Kitty'),
-      Key([], 'w', lazy.spawn('wezterm'),        desc = 'Run Wezterm'),
-      Key([], 'x', lazy.spawn('xfce4-terminal'), desc = 'Run Xfce4-terminal'),
-    ],
-    mode = False,
-    name = 'Terminal',
-  ),
+  # KeyChord([MOD4], 'c', [
+  #     # NOTE:
+  #     #  When running anything other than Kitty, pressing Mod4+Return launches xfce4-terminal.
+  #     #  The reason is unknown.
+  #     #  Do the symptoms above mean I need to modify the "Default Applications" in Xfce4?
+  #     Key([], 'a', lazy.spawn('alacritty'),      desc = 'Run Alacritty'),
+  #     Key([], 'g', lazy.spawn('ghostty'),        desc = 'Run Ghostty'),
+  #     Key([], 'k', lazy.spawn('kitty'),          desc = 'Run Kitty'),
+  #     Key([], 'w', lazy.spawn('wezterm'),        desc = 'Run Wezterm'),
+  #     Key([], 'x', lazy.spawn('xfce4-terminal'), desc = 'Run Xfce4-terminal'),
+  #   ],
+  #   mode = False,
+  #   name = 'Terminal',
+  # ),
 
 
   # This is test.
-  Key([MOD4], "F2", lazy.spawn("vlc")),
+  # Key([MOD4], "F2", lazy.spawn("vlc")),
 ]
 
 
