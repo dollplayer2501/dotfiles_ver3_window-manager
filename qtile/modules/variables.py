@@ -85,6 +85,8 @@ current_gengou_reiwa = int(current_date_time.strftime('%Y')) - 2018
 # Screen, workspace
 #
 
+# TODO:
+#  Is this unnecessary?
 workspace_all = ['1', '2', '3', '4', '5', '7', '8', '9',]
 workspace_main = ['1', '2', '3', '4', '5', '9',]
 workspace_sub = ['6', '7', '8',] # This does not use
