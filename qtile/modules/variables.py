@@ -4,8 +4,10 @@ Variables
 
 """
 
+import datetime
 import os
-from datetime import datetime
+import socket
+
 #
 # from libqtile.utils import guess_terminal
 
@@ -26,6 +28,15 @@ UP = 'Up'
 DOWN = 'Down'
 LEFT = 'Left'
 RIGHT = 'Right'
+
+
+#
+# My hostname
+#
+
+my_hostname = socket.gethostname().lower()
+hostname_chandanna = 'chandanna' # ASRock X600M-STX AMD Ryzen 5 8600G
+hostname_bacstual = 'bacstual'   # ThinkPad X13 Gen 1 AMD Ryzen 5 PRO 4650U
 
 
 #
@@ -66,7 +77,7 @@ custom_popup_icon_path = os.path.expanduser('~/.config/qtile/icons/popup-icons')
 # Japanese era name, `Reiwa` is supported.
 #
 
-current_date_time = datetime.now()
+current_date_time = datetime.datetime.now()
 current_gengou_reiwa = int(current_date_time.strftime('%Y')) - 2018
 
 

@@ -24,6 +24,9 @@ from qtile_extras import widget
 # from libqtile import widget
 #
 from modules.variables import (
+  my_hostname,
+  hostname_chandanna,
+  hostname_bacstual,
   font_set,
   current_gengou_reiwa,
   custom_layout_icon_path,
@@ -44,6 +47,46 @@ from modules.functions import (
 #
 from theme_colors import Theme_Colors
 
+
+#
+#
+#
+
+if hostname_chandanna == my_hostname:
+  volume_widget = widget.PulseVolume
+  volume_args = {
+    'emoji': False,
+    'fmt': '<small>Vol</small> {}',
+    'mute_format': 'Mute',
+    'padding': 2,
+    'fontsize': 16,
+    'font': font_set['main'],
+    'foreground': Theme_Colors['LightBlue'],
+    'background': Theme_Colors['DarkBlue_default'],
+    'mute_foreground': Theme_Colors['Oreange'],
+    **common_powerline,
+  }
+else:
+  volume_widget = widget.Volume
+  volume_args = {
+    'emoji': False,
+    'fmt': 'Vol: {}',
+    'mute_format': 'Mute',
+    'padding': 4,
+    'fontsize': 16,
+    'font': font_set['main'],
+    'mouse_callbacks': {
+      # Button1 is mute on/off
+      'Button3': lambda: qtile.spawn('pavucontrol'),
+    },
+    'foreground': Theme_Colors['LightBlue'],
+    'background': Theme_Colors['DarkBlue_default'],
+  }
+
+
+#
+#
+#
 
 screen_main = Screen(
   # TODO: Common widgets share common values
@@ -296,22 +339,25 @@ screen_main = Screen(
       ),
 
       # NOTE: This requires aur/python-pulsectl-asyncio
-      widget.PulseVolume(
-        emoji = False,
+###      widget.PulseVolume(
+###        emoji = False,
+###
+###        fmt = '<small>Vol</small> {}',
+###        mute_format = 'Mute',
+###
+###        padding = 2,
+###        fontsize = 16,
+###        font = font_set['main'],
+###
+###        foreground = Theme_Colors['LightBlue'],
+###        background = Theme_Colors['DarkBlue_default'],
+###        mute_foreground = Theme_Colors['Oreange'],
+###
+###        **common_powerline,
+###      ),
 
-        fmt = '<small>Vol</small> {}',
-        mute_format = 'Mute',
+      volume_widget(**volume_args),
 
-        padding = 2,
-        fontsize = 16,
-        font = font_set['main'],
-
-        foreground = Theme_Colors['LightBlue'],
-        background = Theme_Colors['DarkBlue_default'],
-        mute_foreground = Theme_Colors['Oreange'],
-
-        **common_powerline,
-      ),
 
       # NOTE: The following code will likely not function correctly going forward.
       #       The specific symptom is that the current volume level is not displayed correctly.
