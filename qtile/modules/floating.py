@@ -32,6 +32,7 @@ floating_layout = layout.Floating(
     Match(wm_class = 'nm-connection-editor'),
     Match(wm_class = 'Blueman-manager'),
     Match(wm_class = 'Xfce4-about'),
+    Match(wm_class = 'Xfce4-notifyd'),
     Match(wm_class = 'Ristretto'),
 
     Match(wm_class = 'Virt-manager'),

@@ -153,7 +153,7 @@ screen_main = Screen(
         # selected = ('', ''),
 
         foreground = Theme_Colors['LightBlue'],
-        background = Theme_Colors['DarkBlue_lighten'],
+        background = Theme_Colors['DarkBlue_default'],
         # **common_powerline,
       ),
 
@@ -197,7 +197,7 @@ screen_main = Screen(
       widget.CPU(
         format = '<small>CPU</small> {load_percent}% <small>{freq_current}GHz</small>',
 
-        padding = 4,
+        padding = 2,
         fontsize = 18,
         font = font_set['main'],
 
@@ -244,7 +244,7 @@ screen_main = Screen(
         update_interval = 2,
 
         padding = 2,
-        fontsize = 18,
+        fontsize = 16,
         font = font_set['main'],
 
         foreground = Theme_Colors['LightBlue'],
@@ -258,7 +258,7 @@ screen_main = Screen(
         # measure_swap = 'G',
 
         padding = 2,
-        fontsize = 18,
+        fontsize = 16,
         font = font_set['main'],
 
         foreground = Theme_Colors['LightBlue'],
@@ -272,7 +272,7 @@ screen_main = Screen(
         no_update_string = '<small>NoUpd</small>',
         initial_text = '<small>Now checking</small>',
 
-        padding = 4,
+        padding = 2,
         fontsize = 14,
         font = font_set['main'],
 
@@ -287,8 +287,8 @@ screen_main = Screen(
         func = get_uptime,
         update_interval = 60,
 
-        padding = 4,
-        fontsize = 16,
+        padding = 2,
+        fontsize = 14,
         font = font_set['main'],
 
         foreground = Theme_Colors['LightBlue'],
@@ -302,7 +302,7 @@ screen_main = Screen(
         fmt = '<small>Vol</small> {}',
         mute_format = 'Mute',
 
-        padding = 4,
+        padding = 2,
         fontsize = 16,
         font = font_set['main'],
 
@@ -353,12 +353,12 @@ screen_main = Screen(
       widget.Clock(
         format = '%Y' + '<small>/R' + str(current_gengou_reiwa) + '</small>-%m-%d %a %H:%M',
 
-        padding = 2,
+        padding = 0,
         fontsize = 22,
         font = font_set['main'],
 
         foreground = Theme_Colors['Oreange'],
-        background = Theme_Colors['DarkBlue_lighten'],
+        background = Theme_Colors['DarkBlue_default'],
 
         **common_powerline,
       ),
@@ -370,6 +370,8 @@ screen_main = Screen(
         padding = 2,
 
         background = Theme_Colors['DarkBlue_default'],
+
+        **common_powerline,
       ),
 
       # widget.BatteryIcon(
@@ -382,14 +384,14 @@ screen_main = Screen(
 
       widget.TextBox(
         # fmt = '  ',
-        fmt = '  ',
+        fmt = ' ',
         fontsize = 20,
         font = font_set['main'],
         padding = 0,
         mouse_callbacks = {
           'Button1': lazy.function(show_power_menu),
         },
-        foreground = Theme_Colors['Purple'],
+        foreground = Theme_Colors['Oreange'],
         background = Theme_Colors['DarkBlue_default'],
       ),
 
