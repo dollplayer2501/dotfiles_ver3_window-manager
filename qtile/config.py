@@ -47,7 +47,7 @@ from modules.keys import keys
 from modules.groups import groups
 from modules.hooks import hook
 from modules.layouts import layouts
-from modules.screens import screens
+from modules.screens_default_setting import screens
 # from modules.screens_none import screens
 from modules.floating import floating_layout
 from modules.mouse import mouse
