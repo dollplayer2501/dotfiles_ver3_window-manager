@@ -21,6 +21,7 @@
 
 import getopt
 import os
+import pprint
 import sys
 
 import cairocffi as cairo
@@ -423,8 +424,20 @@ class C1Info(KInfo):
 
 
 class C2Info(KInfo):
+    #
+    # NOTE:
+    #   This is KeyChord
+    #
     def __init__(self, key_L1, key_L2):
+        # NOTE:
+        #   key_L1: KeyChord's first key
+        #   key_L2: KeyChord's second key
+        #
+
+        pprint.pprint(key_L2.desc)
+
         if key_L2.key in self.KEY_MAP:
+            # This does not come here
             self.key = self.KEY_MAP[key_L2.key]
         else:
             self.key = key_L2.key
@@ -508,6 +521,7 @@ if __name__ == "__main__":
             output_dir = arg
 
     kb_map = get_kb_map(config_path)
+    # pprint.pprint(kb_map)
     for modifier, keys in kb_map.items():
         if not modifier:
             filename = "no_modifier.png"
