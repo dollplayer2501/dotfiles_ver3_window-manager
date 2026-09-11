@@ -19,7 +19,7 @@ Notes of special interest follow below.
 ~~And Rename `modules/screenbar_*.py` to `built_in_widgets.py` ?~~  
 **This as concluded for the time being.**
 
-1. ~~Separating the configuration and placement of built-in widgets (to avoid lengthy code)~~
+1. ~~Separating the configuration and placement of built-in widgets (to avoid lengthy code)~~  
 **For some reason—though I haven't investigated why—the GPU load isn't displayed on the ASRock X600M-STX.**
 
 1. Long-term goal: Implement a shutdown menu (or similar) using dmenu or Rofi.  
