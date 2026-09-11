@@ -2,6 +2,8 @@
 #
 # autostart.sh - Script called when Qtile starts
 #
+# ** Hostname:Chandanna only **
+#
 # See `@hook.subscribe.startup_once`, `def autostart()` in `./modules/hooks.py`.
 #
 

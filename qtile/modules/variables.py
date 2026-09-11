@@ -47,7 +47,7 @@ hostname_bacstual = 'bacstual'   # ThinkPad X13 Gen 1 AMD Ryzen 5 PRO 4650U
 #  but they can also be implemented within hooks.
 #
 
-autostart_sh = os.path.expanduser('~/.config/qtile/scripts/autostart.sh')
+autostart_sh = os.path.expanduser('~/.config/qtile/scripts/autostart..%s.sh' % (my_hostname))
 shutdown_sh = os.path.expanduser('~/.config/qtile/scripts/shutdown.sh')
 
 
