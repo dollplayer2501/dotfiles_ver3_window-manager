@@ -2,6 +2,8 @@
 #
 #
 
+import subprocess
+
 from qtile_extras.widget.decorations import PowerLineDecoration
 from qtile_extras import widget # from libqtile import widget
 from libqtile.lazy import lazy
@@ -11,6 +13,7 @@ from modules.popup import (
 )
 from modules.functions import (
   get_uptime,
+  get_gpu_usage,
 )
 from modules.variables import (
   my_hostname,
@@ -25,9 +28,8 @@ from theme_colors import Theme_Colors
 
 
 #
+# https://qtile-extras.readthedocs.io/en/stable/manual/ref/decorations.html#powerlinedecoration
 #
-#
-
 common_powerline = {
   'decorations': [
     PowerLineDecoration(
@@ -41,9 +43,8 @@ common_powerline = {
 }
 
 #
+# https://docs.qtile.org/en/latest/manual/ref/widgets.html#prompt
 #
-#
-
 prompt_args = {
   'prompt': 'I Ran (So Far Away): ',
 
@@ -55,6 +56,9 @@ prompt_args = {
   'background': Theme_Colors['Oreange'],
 }
 
+#
+# https://docs.qtile.org/en/latest/manual/ref/widgets.html#chord
+#
 chord_args = {
   'fontsize': 20,
   'font': font_set['sub2'],
@@ -72,6 +76,9 @@ chord_args = {
   # },
 }
 
+#
+# https://docs.qtile.org/en/latest/manual/ref/widgets.html#currentlayout
+#
 currentLayoutIcon_args = {
   'custom_icon_paths': custom_layout_icon_path,
 
@@ -82,6 +89,9 @@ currentLayoutIcon_args = {
   'background': Theme_Colors['DarkBlue_default'],
 }
 
+#
+# https://docs.qtile.org/en/latest/manual/ref/widgets.html#groupbox
+#
 groupBox_args = {
   'visible_groups': workspace_main,
 
@@ -101,6 +111,9 @@ groupBox_args = {
   'background': Theme_Colors['DarkBlue_default'],
 }
 
+#
+# https://docs.qtile.org/en/latest/manual/ref/widgets.html#windowtabs
+#
 windowTabs_args = {
   'fontsize': 14,
   'font': font_set['sub1'],
@@ -119,8 +132,13 @@ windowTabs_args = {
   'background': Theme_Colors['DarkBlue_default'],
 }
 
+#
+# https://docs.qtile.org/en/latest/manual/ref/widgets.html#cpu
+#
 CPU_args = {
-  'format': '<small>CPU</small> {load_percent}% <small>{freq_current}GHz</small>',
+  # 'format': '<small>CPU</small> {load_percent}% <small>{freq_current}GHz</small>',
+  'format': '<small>CPU</small> {load_percent}%',
+  'update_interval': 2, # seconds ?
 
   'padding': 2,
   'fontsize': 18,
@@ -130,12 +148,15 @@ CPU_args = {
   'background': Theme_Colors['DarkBlue_default'],
 }
 
+#
+# https://docs.qtile.org/en/latest/manual/ref/widgets.html#thermalsensor
+#
 thermalSensor_args = {
   # NOTE: This need `lm_sensors` package.
   #       And check `sensors`.
 
   'tag_sensor': 'Tctl',
-  'update_interval': 2,
+  'update_interval': 2, # seconds
   'threshold': 45,
 
   'padding': 2,
@@ -147,13 +168,12 @@ thermalSensor_args = {
   'background': Theme_Colors['DarkBlue_default'],
 }
 
+#
+# https://docs.qtile.org/en/latest/manual/ref/widgets.html#genpolltext
+#
 genPollText_GPU_args = {
-  #
-  # TODO: This does not work???
-  #
-
-  'func': lambda: '<small>GPU</small> ' + subprocess.getoutput("amdgpu_top -n 1 -J | jq '.devices[0].gpu_activity.GFX.value'") + '%',
-  'update_interval': 2,
+  'func': get_gpu_usage,
+  'update_interval': 5, # seconds
 
   'padding': 2,
   'fontsize': 16,
@@ -163,10 +183,14 @@ genPollText_GPU_args = {
   'background': Theme_Colors['DarkBlue_default'],
 }
 
+#
+# https://docs.qtile.org/en/latest/manual/ref/widgets.html#memory
+#
 memory_args = {
   'format': '<small>Mem</small> {MemUsed:.0f}{mm}/{MemTotal:.0f}{mm}',
   # 'format': 'Mem: {MemUsed:.0f}{mm}/{MemTotal:.0f}{mm} Swap: {SwapUsed:.0f}{ms}/{SwapTotal:.0f}{ms}',
   'measure_mem': 'G',
+  'update_interval': 2, # seconds ?
 
   'padding': 2,
   'fontsize': 16,
@@ -176,10 +200,14 @@ memory_args = {
   'background': Theme_Colors['DarkBlue_default'],
 }
 
+#
+# https://docs.qtile.org/en/latest/manual/ref/widgets.html#checkupdates
+#
 checkUpdates_args = {
   'display_format': '<small>Upd</small> {updates}',
+  'update_interval': 600, # seconds
   'distro': 'Arch_checkupdates',
-  'update_interval': 600,
+
   'no_update_string': '<small>NoUpd</small>',
   'initial_text': '<small>Now checking</small>',
 
@@ -193,7 +221,25 @@ checkUpdates_args = {
   'background': Theme_Colors['DarkBlue_default'],
 }
 
+#
+# https://docs.qtile.org/en/latest/manual/ref/widgets.html#genpolltext
+#
+genPollText_uptime_args = {
+  'func': get_uptime,
+  'update_interval': 60, # seconds
+
+  'padding': 2,
+  'fontsize': 14,
+  'font': font_set['main'],
+
+  'foreground': Theme_Colors['LightBlue'],
+  'background': Theme_Colors['DarkBlue_default'],
+}
+
 if hostname_chandanna == my_hostname:
+  #
+  # https://docs.qtile.org/en/latest/manual/ref/widgets.html#pulsevolume
+  #
   volume_widget = widget.PulseVolume
   volume_args = {
     'emoji': False,
@@ -207,6 +253,9 @@ if hostname_chandanna == my_hostname:
     'mute_foreground': Theme_Colors['Oreange'],
   }
 else:
+  #
+  # https://docs.qtile.org/en/latest/manual/ref/widgets.html#volume
+  #
   volume_widget = widget.Volume
   volume_args = {
     'emoji': False,
@@ -223,19 +272,9 @@ else:
     'background': Theme_Colors['DarkBlue_default'],
   }
 
-
-genPollText_uptime_args = {
-  'func': get_uptime,
-  'update_interval': 60,
-
-  'padding': 2,
-  'fontsize': 14,
-  'font': font_set['main'],
-
-  'foreground': Theme_Colors['LightBlue'],
-  'background': Theme_Colors['DarkBlue_default'],
-}
-
+#
+# https://docs.qtile.org/en/latest/manual/ref/widgets.html#clock
+#
 clock_args = {
   'format': '%Y' + '<small>/R' + str(current_gengou_reiwa) + '</small>-%m-%d %a %H:%M',
 
@@ -247,6 +286,9 @@ clock_args = {
   'background': Theme_Colors['DarkBlue_default'],
 }
 
+#
+# https://docs.qtile.org/en/latest/manual/ref/widgets.html#systray
+#
 systray_args = {
   'icon_size': 16,
   'padding': 2,
@@ -254,6 +296,9 @@ systray_args = {
   'background': Theme_Colors['DarkBlue_default'],
 }
 
+#
+# https://docs.qtile.org/en/latest/manual/ref/widgets.html#textbox
+#
 textBox_power_menu_args = {
   'fmt': ' ', # ' ',
   'fontsize': 20,
@@ -267,4 +312,7 @@ textBox_power_menu_args = {
   'foreground': Theme_Colors['Oreange'],
   'background': Theme_Colors['DarkBlue_default'],
 }
+
+
+##
 

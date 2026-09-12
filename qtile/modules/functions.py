@@ -8,6 +8,8 @@ Each individual function needs to be reviewed.
 TODO: Adding Docstrings to individual functions?
 """
 
+import subprocess
+
 from libqtile.lazy import lazy
 from libqtile import qtile
 
@@ -88,6 +90,13 @@ def get_uptime():
     return f"<small>UP</small> {hours}h {minutes}m"
   else:
     return f"<small>UP</small> {minutes}m"
+
+
+def get_gpu_usage():
+  value = subprocess.getoutput(
+    "amdgpu_top -n 1 -J | jq '.devices[0].gpu_activity.GFX.value'"
+  )
+  return f'<small>GPU</small> {value}%'
 
 
 def set_trans_color(color: str, transparent: str) -> str:
