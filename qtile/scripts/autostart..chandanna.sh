@@ -68,24 +68,23 @@ sh -c "systemctl --user start xfce4-notifyd.service 2>/dev/null || exec /usr/lib
 #
 #
 
-# xsetroot -cursor_name left_ptr & disowm
-
-# disable screen-saver
-## xset s off
-
-# enable DPMS
-## xset +dpms
-## xset dpms 1800 1800 1800
-
-# enable screen-lock
-## xss-lock -- i3lock -n &
-
 # enable fcitx5
 /usr/bin/fcitx5 -d &
 
 # enable Picom
-/usr/bin/picom --daemon &
+/usr/bin/picom --daemon --log-file ~/.local/share/picom/picom.log &
 
+
+echo '-- autostart.sh out -- ' >>~/.local/share/qtile/qtile.log
+
+
+#
+#
+#
+
+# enable DPMS
+## xset +dpms
+## xset dpms 1800 1800 1800
 
 # Mouse cursor speed, only this environment?
 # id=$(xinput list --id-only "ELECOM ELECOM BlueLED Mouse")
@@ -93,12 +92,6 @@ sh -c "systemctl --user start xfce4-notifyd.service 2>/dev/null || exec /usr/lib
 
 # xinput --set-prop 12 "libinput Accel Profile Enabled" 0 1
 # xinput --set-prop 12 "libinput Accel Speed" -0.3
-
-echo '-- autostart.sh out -- ' >>~/.local/share/qtile/qtile.log
-
-
-
-
 
 # dbus-update-activation-environment $systemd_arg \
 #   DESKTOP_SESSION \
@@ -119,7 +112,6 @@ echo '-- autostart.sh out -- ' >>~/.local/share/qtile/qtile.log
 #   XDG_SESSION_PATH \
 #   XDG_SESSION_TYPE \
 #   XDG_STATE_HOME
-
 
 
 ##
