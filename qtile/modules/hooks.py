@@ -28,6 +28,24 @@ groupbox1 = widget.GroupBox(visible_groups = workspace_main)
 groupbox2 = widget.GroupBox(visible_groups = workspace_sub)
 
 
+#
+# Picom settings
+#
+#  {
+#    match = "QTILE_BAR:32c = 1";
+#    opacity = 1.0;
+#  },
+#
+# Qtile settings
+#
+# @hook.subscribe.startup
+# def _():
+#   for screen in qtile.screens:
+#     for b in (screen.top, screen.bottom, screen.left, screen.right):
+#       if b is not None and getattr(b, "window", None) is not None:
+#         b.window.window.set_property("QTILE_BAR", 1, "CARDINAL", 32)
+
+
 @hook.subscribe.startup_once
 def autostart():
   logger.info('Hook: startup_once! in')
