@@ -119,14 +119,13 @@ keys = [
   KeyChord([MOD4], 'z', [
       # Web Browser
       Key([],      'b', lazy.spawn('firefox'), desc = 'Run Firefox'),
-      Key([SHIFT], 'b', lazy.spawn('firefox --private-window about:blank'), desc = 'Run Firefox, private'),
+      # Key([SHIFT], 'b', lazy.spawn('firefox --private-window about:blank'), desc = 'Run Firefox, private'),
       # Password Manager
       Key([],      'p', lazy.spawn('keepassxc'), desc = 'Run KeepassXC'),
       # Mailer
       Key([],      'm', lazy.spawn('thunderbird'), desc = 'Run Thunderbird'),
       # Filer
       Key([],      'f', lazy.spawn('thunar'), desc = 'Run Thunar'),
-      Key([SHIFT], 'f', lazy.spawn('nautilus'), desc = 'Run Nautilus'),
       # Video
       Key([],      'v', lazy.spawn('vlc'), desc = 'Run VLC'),
       # Graphic, Raster format
@@ -135,11 +134,13 @@ keys = [
       Key([],      'i', lazy.spawn('inkscape'), desc = 'Run Inkscape'),
       # Office
       Key([],      'o', lazy.spawn('libreoffice'), desc = 'Run LibreOffice'),
+      # Terminal
+      Key([],      't', lazy.spawn('kitty'), desc = 'Run Kitty'),
       #
       Key([],      'n', lazy.spawn('notable'), desc = 'Run Notable'),
       Key([],      's', lazy.spawn('flatpak run com.valvesoftware.Steam'), desc = 'Run Steam'),
-      Key([],      't', lazy.spawn('kitty'), desc = 'Run Kitty'),
-      Key([],      'z', lazy.spawn('mousepad'), desc = 'Run mousepad'),
+      Key([],      'x', lazy.spawn('xfce4-settings-manager'), desc = 'Run Xfce4 Settings'),
+      Key([],      'z', lazy.spawn('mousepad'), desc = 'Run Mousepad'),
     ],
     mode = False,
     name = 'Applications',
