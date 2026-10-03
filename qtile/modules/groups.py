@@ -30,7 +30,10 @@ from modules.layouts import (
 from modules.functions import (
     go_to_group,
     go_to_group_and_move_window,
+    set_trans_color,
   )
+#
+from theme_colors import Theme_Colors
 
 
 group_defaults = dict(
@@ -43,7 +46,7 @@ groups = [
 
   Group(screen_affinity = 0, position = 1, name = '1', label = '1.terminal',
     layouts = [
-      layout.TreeTab(**layout_setting_treeTab, panel_width = 450),
+      layout.TreeTab(**layout_setting_treeTab, panel_width = 450,),
       layout.VerticalTile(**layout_setting_verticalTile),
       layout.Max(**layout_setting_max),
     ],
@@ -69,7 +72,7 @@ groups = [
 
   Group(screen_affinity = 0, position = 3, name = '3', label = '3.web',
     layouts = [
-      layout.TreeTab(**layout_setting_treeTab, panel_width = 350),
+      layout.TreeTab(**layout_setting_treeTab, panel_width = 300,),
       layout.Max(**layout_setting_max),
     ],
     matches = [
@@ -97,7 +100,7 @@ groups = [
   Group(screen_affinity = 0, position = 5, name = '5', label = '5.misc',
     layouts = [
       layout.Max(**layout_setting_max),
-      layout.TreeTab(**layout_setting_treeTab, panel_width = 350),
+      layout.TreeTab(**layout_setting_treeTab, panel_width = 350,),
       layout.Floating(**layout_setting_floating),
     ],
     matches = [
