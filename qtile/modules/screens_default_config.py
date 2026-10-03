@@ -133,6 +133,16 @@ windowTabs_args = {
 }
 
 #
+# https://docs.qtile.org/en/latest/manual/ref/widgets.html#sep
+#
+sep_args_1 = {
+  'linewidth': 0,
+  'padding': 10,
+
+  'background': Theme_Colors['DarkBlue_default'],
+}
+
+#
 # https://docs.qtile.org/en/latest/manual/ref/widgets.html#cpu
 #
 CPU_args = {

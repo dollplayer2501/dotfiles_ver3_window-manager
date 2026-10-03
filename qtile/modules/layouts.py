@@ -102,7 +102,6 @@ layout_setting_monadWide = {
 # https://docs.qtile.org/en/stable/manual/ref/layouts.html#treetab
 #
 layout_setting_treeTab = {
-
   'active_bg': set_trans_color(Theme_Colors['Purple'], '66'),
   'active_fg': Theme_Colors['Oreange'],
   'bg_color': set_trans_color(Theme_Colors['DarkBlue_default'], 'cc'),
