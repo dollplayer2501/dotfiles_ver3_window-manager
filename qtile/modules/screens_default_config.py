@@ -30,17 +30,36 @@ from theme_colors import Theme_Colors
 #
 # https://qtile-extras.readthedocs.io/en/stable/manual/ref/decorations.html#powerlinedecoration
 #
-common_powerline = {
-  'decorations': [
-    PowerLineDecoration(
-      extrawidth = 0,
-      ignore_extrawidth = True,
-      stroke_colour = Theme_Colors['Oreange'],
-      stroke_weight = 1,
-      path = 'forward_slash',
-    )
-  ]
+# common_powerline = {
+#   'decorations': [
+#     PowerLineDecoration(
+#       extrawidth = 0,
+#       ignore_extrawidth = True,
+#       stroke_colour = Theme_Colors['Oreange'],
+#       stroke_weight = 1,
+#       path = 'forward_slash',
+#     )
+#   ]
+# }
+
+
+#
+# https://docs.qtile.org/en/latest/manual/ref/widgets.html#sep
+#
+# sep_args_1 = {
+#   'linewidth': 0,
+#   'padding': 10,
+#
+#   'background': Theme_Colors['DarkBlue_default'],
+# }
+sep_args = {
+  'linewidth': 1,
+  'padding': 10,
+
+  'foreground': Theme_Colors['Oreange'],
+  'background': Theme_Colors['DarkBlue_default'],
 }
+
 
 #
 # https://docs.qtile.org/en/latest/manual/ref/widgets.html#prompt
@@ -69,9 +88,7 @@ chord_args = {
   # TODO: Pend
   # chords_colors = {
   #   'Applications': (
-  #     # Theme_Colors['Oreange'],
   #     Theme_Colors['Debug'],
-  #     # Theme_Colors['DarkBlue_default'],
   #   ),
   # },
 }
@@ -83,7 +100,7 @@ currentLayoutIcon_args = {
   'custom_icon_paths': custom_layout_icon_path,
 
   'scale': 0.8,
-  'padding': 4,
+  'padding': 2,
 
   'foreground': Theme_Colors['Debug'],
   'background': Theme_Colors['DarkBlue_default'],
@@ -99,8 +116,11 @@ groupBox_args = {
   'font': font_set['main'],
 
   'margin': 0,
-  'margin_x': 0,
-  'margin_y': 4,
+  'margin_x': 2,
+  'margin_y': 0,
+  'padding': 0,
+  'padding_x': 0,
+  'padding_y': 0,
 
   'active': Theme_Colors['LightBlue'],
   'block_highlight_text_color': Theme_Colors['Oreange'],
@@ -132,15 +152,6 @@ windowTabs_args = {
   'background': Theme_Colors['DarkBlue_default'],
 }
 
-#
-# https://docs.qtile.org/en/latest/manual/ref/widgets.html#sep
-#
-sep_args_1 = {
-  'linewidth': 0,
-  'padding': 10,
-
-  'background': Theme_Colors['DarkBlue_default'],
-}
 
 #
 # https://docs.qtile.org/en/latest/manual/ref/widgets.html#cpu
@@ -288,7 +299,7 @@ else:
 clock_args = {
   'format': '%Y' + '<small>/R' + str(current_gengou_reiwa) + '</small>-%m-%d %a %H:%M',
 
-  'padding': 0,
+  'padding': 2,
   'fontsize': 22,
   'font': font_set['main'],
 
@@ -301,7 +312,7 @@ clock_args = {
 #
 systray_args = {
   'icon_size': 16,
-  'padding': 2,
+  'padding': 4,
 
   'background': Theme_Colors['DarkBlue_default'],
 }
