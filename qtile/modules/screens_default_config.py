@@ -5,9 +5,10 @@
 from libqtile import widget
 from libqtile.lazy import lazy
 
-from modules.popup import (
-  show_power_menu,
-)
+## from modules.popup import (
+##   show_power_menu,
+## )
+from modules.dmenu_power_menu import dmenu_power_menu
 from modules.functions import (
   get_uptime,
   get_gpu_usage,
@@ -302,7 +303,8 @@ textBox_power_menu_args = {
   'padding': 0,
 
   'mouse_callbacks': {
-    'Button1': lazy.function(show_power_menu),
+#    'Button1': lazy.function(show_power_menu),
+    'Button1': lazy.function(dmenu_power_menu),
   },
 
   'foreground': Theme_Colors['Oreange'],

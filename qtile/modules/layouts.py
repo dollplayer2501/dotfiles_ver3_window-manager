@@ -8,8 +8,8 @@ For group settings, see `./modules/groups.py`.
 https://docs.qtile.org/en/stable/manual/ref/layouts.html
 """
 
-# from libqtile import layout
-from qtile_extras import layout
+from libqtile import layout
+# from qtile_extras import layout
 #
 from modules.variables import font_set
 from theme_colors import Theme_Colors
@@ -153,14 +153,13 @@ layout_setting_verticalTile = {
 # This is Qtile-Extras
 #  https://qtile-extras.readthedocs.io/en/stable/manual/ref/layouts.html#plasma
 #
-layout_setting_plasma = {
-  'border_focus': '#00e891',
-  'border_focus_fixed': '#00e8dc',
-  'border_normal': '#333333',
-  'border_normal_fixed': '#333333',
-  'name': 'PlasmaX',
-}
-
+#  layout_setting_plasma = {
+#    'border_focus': '#00e891',
+#    'border_focus_fixed': '#00e8dc',
+#    'border_normal': '#333333',
+#    'border_normal_fixed': '#333333',
+#    'name': 'PlasmaX',
+#  }
 
 
 layouts = [
@@ -197,9 +196,9 @@ layouts = [
     **layout_setting_verticalTile,
   ),
 
-  layout.Plasma(
-    **layout_setting_plasma,
-  ),
+  #  layout.Plasma(
+  #    **layout_setting_plasma,
+  #  ),
 
   # layout.Tile(
   #   border_width = 1,

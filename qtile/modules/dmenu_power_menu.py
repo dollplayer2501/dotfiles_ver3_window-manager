@@ -3,7 +3,9 @@
 #
 
 import subprocess
-
+#
+from libqtile import qtile
+#
 from modules.variables import font_set
 from theme_colors import Theme_Colors
 
@@ -45,7 +47,8 @@ def dmenu_power_menu(qtile):
     ])
 
   elif 'Logout' == choice:
-    qtile.cmd_shutdown()
+#    qtile.core.excmd('shutdown')
+    qtile.shutdown()
 
   elif 'Power off' == choice:
     subprocess.run([

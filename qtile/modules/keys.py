@@ -11,14 +11,14 @@ from libqtile import extension
 from libqtile.lazy import lazy
 from libqtile.config import Key, KeyChord
 #
-#### from modules.variables import MOD4, CONTROL, SHIFT, TAB, SPACE, RETURN, UP, DOWN, LEFT, RIGHT
-from modules.popup import show_power_menu
+from modules.variables import MOD4, CONTROL, SHIFT, TAB, SPACE, RETURN, UP, DOWN, LEFT, RIGHT
+# from modules.popup import show_power_menu
 from modules.functions import focus_next_floating, spawn_by_group
 from modules.dmenu_power_menu import dmenu_power_menu
 
 # TODO: This is dmenu, I'll delete this later.
-from theme_colors import Theme_Colors
-from modules.variables import MOD4, CONTROL, SHIFT, TAB, SPACE, RETURN, UP, DOWN, LEFT, RIGHT, font_set
+# from theme_colors import Theme_Colors
+# from modules.variables import MOD4, CONTROL, SHIFT, TAB, SPACE, RETURN, UP, DOWN, LEFT, RIGHT, font_set
 
 
 keys = [
@@ -92,7 +92,7 @@ keys = [
   Key([MOD4], 'f', lazy.window.toggle_fullscreen(), desc = 'Toggle fullscreen on the focused window'),
   Key([MOD4], 't', lazy.window.toggle_floating(),   desc = 'Toggle floating on the focused window'),
   Key([MOD4], 'w', lazy.window.kill(),              desc = 'Kill focused window'),
-  Key([MOD4], 'q', lazy.function(show_power_menu),  desc = 'Popup Power Menu'),
+  # Key([MOD4], 'q', lazy.function(show_power_menu),  desc = 'Popup Power Menu'),
   Key([MOD4], 'b', lazy.hide_show_bar(position = 'bottom'), desc = 'Toggle bottom bar'),
 
 
