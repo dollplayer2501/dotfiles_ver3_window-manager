@@ -2,10 +2,7 @@
 #
 #
 
-import subprocess
-
-from qtile_extras.widget.decorations import PowerLineDecoration
-from qtile_extras import widget # from libqtile import widget
+from libqtile import widget
 from libqtile.lazy import lazy
 
 from modules.popup import (
@@ -28,30 +25,8 @@ from theme_colors import Theme_Colors
 
 
 #
-# https://qtile-extras.readthedocs.io/en/stable/manual/ref/decorations.html#powerlinedecoration
-#
-# common_powerline = {
-#   'decorations': [
-#     PowerLineDecoration(
-#       extrawidth = 0,
-#       ignore_extrawidth = True,
-#       stroke_colour = Theme_Colors['Oreange'],
-#       stroke_weight = 1,
-#       path = 'forward_slash',
-#     )
-#   ]
-# }
-
-
-#
 # https://docs.qtile.org/en/latest/manual/ref/widgets.html#sep
 #
-# sep_args_1 = {
-#   'linewidth': 0,
-#   'padding': 10,
-#
-#   'background': Theme_Colors['DarkBlue_default'],
-# }
 sep_args = {
   'linewidth': 1,
   'padding': 10,
@@ -59,7 +34,6 @@ sep_args = {
   'foreground': Theme_Colors['Oreange'],
   'background': Theme_Colors['DarkBlue_default'],
 }
-
 
 #
 # https://docs.qtile.org/en/latest/manual/ref/widgets.html#prompt
@@ -96,9 +70,10 @@ chord_args = {
 #
 # https://docs.qtile.org/en/latest/manual/ref/widgets.html#currentlayout
 #
-currentLayoutIcon_args = {
-  'custom_icon_paths': custom_layout_icon_path,
+currentLayout_args = {
+  'mode': 'icon',
 
+  'custom_icon_paths': custom_layout_icon_path,
   'scale': 0.8,
   'padding': 2,
 
@@ -312,7 +287,7 @@ clock_args = {
 #
 systray_args = {
   'icon_size': 16,
-  'padding': 4,
+  'padding': 0,
 
   'background': Theme_Colors['DarkBlue_default'],
 }
@@ -322,7 +297,7 @@ systray_args = {
 #
 textBox_power_menu_args = {
   'fmt': ' ', # ' ',
-  'fontsize': 20,
+  'fontsize': 18,
   'font': font_set['main'],
   'padding': 0,
 

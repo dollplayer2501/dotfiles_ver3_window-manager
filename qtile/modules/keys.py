@@ -7,12 +7,18 @@ https://docs.qtile.org/en/stable/manual/config/keys.html
 
 import os
 #
+from libqtile import extension
 from libqtile.lazy import lazy
 from libqtile.config import Key, KeyChord
 #
-from modules.variables import MOD4, CONTROL, SHIFT, TAB, SPACE, RETURN, UP, DOWN, LEFT, RIGHT
+#### from modules.variables import MOD4, CONTROL, SHIFT, TAB, SPACE, RETURN, UP, DOWN, LEFT, RIGHT
 from modules.popup import show_power_menu
 from modules.functions import focus_next_floating, spawn_by_group
+from modules.dmenu_power_menu import dmenu_power_menu
+
+# TODO: This is dmenu, I'll delete this later.
+from theme_colors import Theme_Colors
+from modules.variables import MOD4, CONTROL, SHIFT, TAB, SPACE, RETURN, UP, DOWN, LEFT, RIGHT, font_set
 
 
 keys = [
@@ -101,6 +107,8 @@ keys = [
   Key([MOD4], RETURN, lazy.function(spawn_by_group), desc = 'Spawn app by group, kitty, brave, thunar'),
   Key([MOD4, SHIFT], SPACE, lazy.function(focus_next_floating), desc = 'Move floating window focus to other window'),
 
+
+  Key([MOD4], 'd', lazy.function(dmenu_power_menu),  desc = 'Run power menu'),
 
   Key([MOD4], 'period', lazy.next_screen(), desc = 'Toggle monitor, if 2 monitors'),
 

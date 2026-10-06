@@ -29,6 +29,9 @@ groupbox2 = widget.GroupBox(visible_groups = workspace_sub)
 
 
 #
+# NOTE:
+#
+#
 # Picom settings
 #
 #  {
@@ -44,6 +47,7 @@ groupbox2 = widget.GroupBox(visible_groups = workspace_sub)
 #     for b in (screen.top, screen.bottom, screen.left, screen.right):
 #       if b is not None and getattr(b, "window", None) is not None:
 #         b.window.window.set_property("QTILE_BAR", 1, "CARDINAL", 32)
+#
 
 
 @hook.subscribe.startup_once

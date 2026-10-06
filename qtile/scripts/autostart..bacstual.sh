@@ -7,7 +7,7 @@
 # See `@hook.subscribe.startup_once`, `def autostart()` in `./modules/hooks.py`.
 #
 
-echo '-- autostart.sh in  -- ' >>~/.local/share/qtile/qtile.log
+echo '-- autostart.sh in  -- ' >> ~/.local/share/qtile/qtile.log
 
 #
 # Xfce4
@@ -82,6 +82,6 @@ syncthing --no-browser --logfile="/home/dollplayer/.local/share/syncthing.log" >
 
 # xfce4-terminal &
 
-echo '-- autostart.sh out -- ' >>~/.local/share/qtile/qtile.log
+echo '-- autostart.sh out -- ' >> ~/.local/share/qtile/qtile.log
 
 ##

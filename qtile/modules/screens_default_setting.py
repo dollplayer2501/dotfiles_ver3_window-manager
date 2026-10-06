@@ -4,31 +4,24 @@ Built-in Widgets
 
 Built-in Widgets — Qtile
 https://docs.qtile.org/en/latest/manual/ref/widgets.html
-
-Widgets — qtile-extras
-https://qtile-extras.readthedocs.io/en/stable/manual/ref/widgets.html
 """
 
 #
 #
 #
 
-from libqtile import bar, qtile
+from libqtile import bar, qtile, widget
 from libqtile.config import Screen
 from libqtile.lazy import lazy
-
-from qtile_extras import widget # from libqtile import widget
-from qtile_extras.widget.decorations import PowerLineDecoration
 
 from modules.variables import (
   default_wallpaper,
 )
 from modules.screens_default_config import (
-  # common_powerline,
   sep_args,
   prompt_args,
   chord_args,
-  currentLayoutIcon_args,
+  currentLayout_args,
   groupBox_args,
   windowTabs_args,
   CPU_args,
@@ -52,18 +45,23 @@ from theme_colors import Theme_Colors
 
 screens = [
   Screen(
+    #
+    # TODO: 2026-10-05
+    #   Are the wallpaper-related settings not specific to qtile-extras?
+    #
     wallpaper = default_wallpaper,
     wallpaper_mode = 'fill',
+
     top = None,
 
     bottom = bar.Bar(
       [
         widget.Prompt(**prompt_args,),
         widget.Chord(**chord_args,),
-        widget.CurrentLayoutIcon(**currentLayoutIcon_args,),
+        widget.CurrentLayout(**currentLayout_args,),
         widget.Sep(**sep_args, size_percent = 70,),
         widget.GroupBox(**groupBox_args,),
-        widget.Sep(**sep_args_2, size_percent = 100,),
+        widget.Sep(**sep_args, size_percent = 100,),
         widget.WindowTabs(**windowTabs_args,),
         widget.Sep(**sep_args, size_percent = 100,),
         widget.CPU(**CPU_args,),
@@ -86,6 +84,10 @@ screens = [
       border_width = [1, 0, 1, 0],
       border_color = [Theme_Colors['Oreange'], Theme_Colors['Oreange'], Theme_Colors['Oreange'], Theme_Colors['Oreange']],
       margin = [0, 0, 0, 0],
+      #
+      # TODO: 2026-10-05
+      #   This opacity setting isn't taking effect. I haven't investigated yet whether it's related to Picom.
+      #
       opacity = 0.70,
     ),
   ),
