@@ -434,7 +434,7 @@ class C2Info(KInfo):
         #   key_L2: KeyChord's second key
         #
 
-        pprint.pprint(key_L2.desc)
+        # pprint.pprint(key_L2.desc)
 
         if key_L2.key in self.KEY_MAP:
             # This does not come here

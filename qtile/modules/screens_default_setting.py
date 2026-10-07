@@ -12,8 +12,7 @@ https://docs.qtile.org/en/latest/manual/ref/widgets.html
 
 from libqtile import bar, qtile, widget
 from libqtile.config import Screen
-from libqtile.lazy import lazy
-
+#
 from modules.variables import (
   default_wallpaper,
 )

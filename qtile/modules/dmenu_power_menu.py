@@ -14,6 +14,7 @@ def dmenu_power_menu(qtile):
   choices = [
     'Screensaver',
     'Logout',
+    'Reload Qtile',
     'Power off',
     'Reboot',
   ]
@@ -23,15 +24,15 @@ def dmenu_power_menu(qtile):
 
   result = subprocess.run(
     ['dmenu',
-      '-b',                          # Bottom
-      '-i',                          # Case-insensitive
+      '-b',
+      '-i', # Case-insensitive
       '-p', 'Power menu!',
+      '-l', str(len(choices)),
       '-fn', font_setting,
-      # '-l', str(len(choices)),
-      '-nf', Theme_Colors['Oreange'],
-      '-nb', Theme_Colors['DarkBlue_default'],
-      '-sf', Theme_Colors['DarkBlue_default'],
-      '-sb', Theme_Colors['Oreange'],
+      '-nf', Theme_Colors['DarkBlue_default'],
+      '-nb', Theme_Colors['Oreange'],
+      '-sf', Theme_Colors['Oreange'],
+      '-sb', Theme_Colors['DarkBlue_default'],
     ],
     input = '\n'.join(choices),
     text = True,
@@ -47,16 +48,22 @@ def dmenu_power_menu(qtile):
     ])
 
   elif 'Logout' == choice:
-#    qtile.core.excmd('shutdown')
     qtile.shutdown()
 
+  elif 'Reload Qtile' == choice:
+    qtile.reload_config()
+
   elif 'Power off' == choice:
+    # TODO: 2026-10-07
+    #   Add dmenu for Yes/No selection
     subprocess.run([
       'systemctl',
       'poweroff',
     ])
 
   elif 'Reboot' == choice:
+    # TODO: 2026-10-07
+    #   Add dmenu for Yes/No selection
     subprocess.run([
       'systemctl',
       'reboot',

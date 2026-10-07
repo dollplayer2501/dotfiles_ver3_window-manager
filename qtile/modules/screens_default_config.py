@@ -4,10 +4,7 @@
 
 from libqtile import widget
 from libqtile.lazy import lazy
-
-## from modules.popup import (
-##   show_power_menu,
-## )
+#
 from modules.dmenu_power_menu import dmenu_power_menu
 from modules.functions import (
   get_uptime,
@@ -55,17 +52,21 @@ prompt_args = {
 #
 chord_args = {
   'fontsize': 20,
-  'font': font_set['sub2'],
+  'font': font_set['main'],
 
   'foreground': Theme_Colors['DarkBlue_default'],
   'background': Theme_Colors['Oreange'],
 
-  # TODO: Pend
-  # chords_colors = {
-  #   'Applications': (
-  #     Theme_Colors['Debug'],
-  #   ),
-  # },
+  'chords_colors': {
+    'Applications': (
+      Theme_Colors['Oreange'],
+      Theme_Colors['DarkBlue_default'],
+    ),
+    'System': (
+      Theme_Colors['Red'],
+      Theme_Colors['DarkBlue_default'],
+    ),
+  },
 }
 
 #
@@ -303,7 +304,6 @@ textBox_power_menu_args = {
   'padding': 0,
 
   'mouse_callbacks': {
-#    'Button1': lazy.function(show_power_menu),
     'Button1': lazy.function(dmenu_power_menu),
   },
 

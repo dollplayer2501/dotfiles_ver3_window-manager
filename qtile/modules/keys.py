@@ -5,20 +5,12 @@ Keys
 https://docs.qtile.org/en/stable/manual/config/keys.html
 """
 
-import os
-#
-from libqtile import extension
 from libqtile.lazy import lazy
 from libqtile.config import Key, KeyChord
 #
 from modules.variables import MOD4, CONTROL, SHIFT, TAB, SPACE, RETURN, UP, DOWN, LEFT, RIGHT
-# from modules.popup import show_power_menu
 from modules.functions import focus_next_floating, spawn_by_group
 from modules.dmenu_power_menu import dmenu_power_menu
-
-# TODO: This is dmenu, I'll delete this later.
-# from theme_colors import Theme_Colors
-# from modules.variables import MOD4, CONTROL, SHIFT, TAB, SPACE, RETURN, UP, DOWN, LEFT, RIGHT, font_set
 
 
 keys = [
@@ -36,8 +28,9 @@ keys = [
   # Move windows between left/right columns or move up/down in current stack.
   # Moving out of range in Columns layout will create new column.
 
-  # INFO: .config/qtile · Derek Taylor / Dotfiles · GitLab
-  # https://gitlab.com/dwt1/dotfiles/-/tree/master/.config/qtile?ref_type=heads
+  # NOTE:
+  #   .config/qtile · Derek Taylor / Dotfiles · GitLab
+  #    https://gitlab.com/dwt1/dotfiles/-/tree/master/.config/qtile?ref_type=heads
   Key([MOD4, SHIFT], 'h',
     lazy.layout.shuffle_left(),
     lazy.layout.move_left().when(layout = ['treetab']),
@@ -80,26 +73,18 @@ keys = [
   Key([MOD4, SHIFT], RIGHT, lazy.window.resize_floating(5, 0),   desc = 'Resize floating window to right, large'),
 
 
-  # Toggle between split and unsplit sides of stack.
-  # Split = all windows displayed
-  # Unsplit = 1 window displayed, like Max layout, but still with
-  # multiple stack panes
-  Key([MOD4, SHIFT], RETURN, lazy.layout.toggle_split(), desc = 'Toggle between split and unsplit sides of stack'),
-
-
   Key([MOD4], 'n', lazy.layout.normalize(),         desc = 'Reset all window sizes'),
   Key([MOD4], 'm', lazy.layout.maximize(),          desc = 'Maximize window sizes'),
   Key([MOD4], 'f', lazy.window.toggle_fullscreen(), desc = 'Toggle fullscreen on the focused window'),
   Key([MOD4], 't', lazy.window.toggle_floating(),   desc = 'Toggle floating on the focused window'),
   Key([MOD4], 'w', lazy.window.kill(),              desc = 'Kill focused window'),
-  # Key([MOD4], 'q', lazy.function(show_power_menu),  desc = 'Popup Power Menu'),
   Key([MOD4], 'b', lazy.hide_show_bar(position = 'bottom'), desc = 'Toggle bottom bar'),
 
-
-  Key([MOD4],          'r', lazy.spawncmd(),      desc = 'Spawn a command using a prompt widget'),
-  Key([MOD4, CONTROL], 'r', lazy.reload_config(), desc = 'Reload the config'),
-  # TODO: Instead of executing this immediately, perhaps introduce something like Zenity to add an intermediate step?
-  Key([MOD4, CONTROL], 'q', lazy.shutdown(),      desc = 'Logout session'),
+  # Toggle between split and unsplit sides of stack.
+  # Split = all windows displayed
+  # Unsplit = 1 window displayed, like Max layout, but still with
+  # multiple stack panes
+  Key([MOD4, SHIFT], RETURN, lazy.layout.toggle_split(), desc = 'Toggle between split and unsplit sides of stack'),
 
 
   Key([MOD4], TAB,    lazy.next_layout(),            desc = 'Toggle between layouts'),
@@ -108,19 +93,22 @@ keys = [
   Key([MOD4, SHIFT], SPACE, lazy.function(focus_next_floating), desc = 'Move floating window focus to other window'),
 
 
-  Key([MOD4], 'd', lazy.function(dmenu_power_menu),  desc = 'Run power menu'),
+  Key([MOD4],          'r', lazy.spawncmd(),      desc = 'Spawn a command using a prompt widget'),
+  # TODO:
+  #  Distinguishing between success and failure when reloading Qtile might be difficult, but should we issue a notification?
+  Key([MOD4, CONTROL], 'r', lazy.reload_config(), desc = 'Reload the config'),
+  Key([MOD4, CONTROL], 'q', lazy.shutdown(),      desc = 'Logout session'),
+  Key([MOD4],          'd', lazy.function(dmenu_power_menu), desc = 'Run power menu'),
+  Key([MOD4], 'period',     lazy.next_screen(),   desc = 'Toggle monitor, if 2 monitors'),
 
-  Key([MOD4], 'period', lazy.next_screen(), desc = 'Toggle monitor, if 2 monitors'),
 
-
-  # Key([], 'Print',
-  #   lazy.spawn("scrot -z -p 'EndeavourOS_Qtile_%Y-%m-%d_%H-%M-%S.png' -e ' mv $f ~/Pictures/'"),
-  #   desc = 'Print screen'
-  # ),
-
-  # `my_scrot_now` is `command scrot -z -p "EndeavourOS_Qtile_%Y-%m-%d_%H-%M-%S.png" -e "mv \$f ~/Pictures/"`
+  # NOTE:
+  #  This is handled by creating a function for the Fish shell.
+  #    - dotfiles_ver3_terminal/fish/functions/my_scrot_now.fish at main · dollplayer2501/dotfiles_ver3_terminal
+  #      https://github.com/dollplayer2501/dotfiles_ver3_terminal/blob/main/fish/functions/my_scrot_now.fish
+  #    - dotfiles_ver3_terminal/fish/functions/my_scrot_wait.fish at main · dollplayer2501/dotfiles_ver3_terminal
+  #      https://github.com/dollplayer2501/dotfiles_ver3_terminal/blob/main/fish/functions/my_scrot_wait.fish
   Key([MOD4, CONTROL], 'p', lazy.spawn("fish -c 'my_scrot_now'"),  desc = 'Print screen now'),
-  # `my_scrot_wait` is `command scrot -c -d 10 -z -p "EndeavourOS_Qtile_%Y-%m-%d_%H-%M-%S.png" -e "mv \$f ~/Pictures/"`
   Key([MOD4, CONTROL], 'i', lazy.spawn("fish -c 'my_scrot_wait'"), desc = 'Print screen after 10 sec'),
 
 
@@ -147,32 +135,26 @@ keys = [
       #
       Key([],      'n', lazy.spawn('notable'), desc = 'Run Notable'),
       Key([],      's', lazy.spawn('flatpak run com.valvesoftware.Steam'), desc = 'Run Steam'),
-      Key([],      'x', lazy.spawn('xfce4-settings-manager'), desc = 'Run Xfce4 Settings'),
       Key([],      'z', lazy.spawn('mousepad'), desc = 'Run Mousepad'),
     ],
     mode = False,
     name = 'Applications',
   ),
 
-
-  # KeyChord([MOD4], 'c', [
-  #     # NOTE:
-  #     #  When running anything other than Kitty, pressing Mod4+Return launches xfce4-terminal.
-  #     #  The reason is unknown.
-  #     #  Do the symptoms above mean I need to modify the "Default Applications" in Xfce4?
-  #     Key([], 'a', lazy.spawn('alacritty'),      desc = 'Run Alacritty'),
-  #     Key([], 'g', lazy.spawn('ghostty'),        desc = 'Run Ghostty'),
-  #     Key([], 'k', lazy.spawn('kitty'),          desc = 'Run Kitty'),
-  #     Key([], 'w', lazy.spawn('wezterm'),        desc = 'Run Wezterm'),
-  #     Key([], 'x', lazy.spawn('xfce4-terminal'), desc = 'Run Xfce4-terminal'),
-  #   ],
-  #   mode = False,
-  #   name = 'Terminal',
-  # ),
-
-
-  # This is test.
-  # Key([MOD4], "F2", lazy.spawn("vlc")),
+  # NOTE:
+  #   Just as a trial, for now. It might not be necessary.
+  # TODO:
+  #   It works as a Qtile feature.
+  #   However, it seems that the `Mod4 + Z` and `Mod4 + X` keybindings aren't being captured by `gen-keybinding-img`.
+  #   The `KeyChord` bindings shown below are mapped correctly.
+  KeyChord([MOD4], 'X', [
+      Key([],      'q', lazy.shutdown(),      desc = 'Logout session'),
+      Key([],      'r', lazy.reload_config(), desc = 'Reload the config'),
+      Key([],      'x', lazy.spawn('xfce4-settings-manager'), desc = 'Run Xfce4 Settings'),
+    ],
+    mode = False,
+    name = 'System',
+  ),
 ]
 
 

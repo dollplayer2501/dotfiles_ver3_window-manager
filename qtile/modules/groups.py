@@ -25,14 +25,11 @@ from modules.layouts import (
     layout_setting_monadWide,
     layout_setting_treeTab,
     layout_setting_verticalTile,
-    # layout_setting_plasma,
   )
 from modules.functions import (
     go_to_group,
     go_to_group_and_move_window,
-    set_trans_color,
   )
-#
 from theme_colors import Theme_Colors
 
 
@@ -116,13 +113,6 @@ groups = [
     ],
     **group_defaults,
   ),
-
-  # Group(screen_affinity = 0, position = 6, name = '6', label = '6.plasma',
-  #   layouts = [
-  #     layout.Plasma(**layout_setting_plasma),
-  #   ],
-  #   **group_defaults,
-  # ),
 
   Group(screen_affinity = 0, position = 9,
     name = '9', label = '9.null',
