@@ -78,6 +78,19 @@ screens = [
         widget.Systray(**systray_args,),
         widget.Sep(**sep_args, size_percent = 100,),
         widget.TextBox(**textBox_power_menu_args,),
+        # NOTE: About This widget
+        #   > busctl --user status org.freedesktop.Notifications
+        #   I use `/usr/lib/xfce4/notifyd/xfce4-notifyd`
+        #   > pkill xfce4-notifyd
+        #   > pgrep -a xfce4-notifyd
+        #   **Reload Qtile**
+        #   > notify-send "hoge"
+        #   Text is displayed on the Qtile widget. (Hmm... I wonder...)
+        #   Tentative conclusion:
+        #     I installed Xfce4 first and use Qtile within that environment.
+        #     I launch `xfce4-notifyd.service` via `script/autostart.sh`,
+        #     but I suspect it isn't actually being controlled from there.
+        # widget.Notify(),
       ],
       24,
       border_width = [1, 0, 1, 0],
