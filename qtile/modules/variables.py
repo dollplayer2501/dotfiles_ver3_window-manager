@@ -49,6 +49,7 @@ hostname_bacstual = 'bacstual'   # ThinkPad X13 Gen 1 AMD Ryzen 5 PRO 4650U
 
 autostart_sh = os.path.expanduser('~/.config/qtile/scripts/autostart..%s.sh' % (my_hostname))
 shutdown_sh = os.path.expanduser('~/.config/qtile/scripts/shutdown.sh')
+dex_log = os.path.expanduser('~/.local/share/qtile/dex.log')
 
 
 #

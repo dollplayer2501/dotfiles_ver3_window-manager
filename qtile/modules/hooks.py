@@ -12,14 +12,15 @@ Built-in Hooks
 https://docs.qtile.org/en/stable/manual/ref/hooks.html
 """
 
-# import os
+import os
+import shutil
 import subprocess
 #
 from libqtile import hook, qtile, widget
 from libqtile.utils import send_notification # NOTE: need `python-dbus-fast`
 from libqtile.log_utils import logger
 #
-from modules.variables import autostart_sh, shutdown_sh, workspace_all, workspace_main, workspace_sub
+from modules.variables import autostart_sh, shutdown_sh, dex_log, workspace_all, workspace_main, workspace_sub
 
 
 logger.setLevel('INFO')
@@ -53,7 +54,16 @@ groupbox2 = widget.GroupBox(visible_groups = workspace_sub)
 @hook.subscribe.startup_once
 def autostart():
   logger.info('Hook: startup_once! in')
-  subprocess.call([autostart_sh])
+
+  if os.path.exists(autostart_sh):
+    subprocess.call([autostart_sh])
+
+  if shutil.which('dex'):
+    logger.info('Hook: dex is alive!')
+    with open(dex_log, 'w') as f:
+      subprocess.Popen(['dex', '--autostart', '--environment', 'Qtile'],
+        stdout = f, stderr = f)
+
   logger.info('Hook: startup_once! out')
 
 
@@ -65,7 +75,9 @@ def run_every_startup():
 @hook.subscribe.shutdown
 def autostart():
   logger.info('Hook: shutdown!')
-  subprocess.run([shutdown_sh])
+
+  if os.path.exists(shutdown_sh):
+    subprocess.run([shutdown_sh])
 
 
 @hook.subscribe.restart
@@ -88,6 +100,13 @@ async def _():
 def enter_chord(chord_name):
   # send_notification("qtile", "Started {chord_name} key chord.")
   pass
+
+
+# @hook.subscribe.client_new
+# def _follow(client):
+#   if client.group and client.group.name == "5":
+#     client.group.toscreen()
+
 
 ##
 

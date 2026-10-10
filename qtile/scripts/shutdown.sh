@@ -6,10 +6,11 @@
 #
 
 truncate -s 0 ~/.local/share/qtile/qtile.log
+truncate -s 0 ~/.local/share/qtile/dex.log
 truncate -s 0 ~/.local/share/picom/picom.log
 
 
-echo '-- shutdown.sh      -- ' >> ~/.local/share/qtile/qtile.log
+echo "-- $(hostname) shutdown.sh  out -- " >> ~/.local/share/qtile/qtile.log
 
 
 ##

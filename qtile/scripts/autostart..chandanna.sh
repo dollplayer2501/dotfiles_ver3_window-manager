@@ -7,7 +7,7 @@
 # See `@hook.subscribe.startup_once`, `def autostart()` in `./modules/hooks.py`.
 #
 
-echo '-- autostart.sh in  -- ' >>~/.local/share/qtile/qtile.log
+echo "-- $(hostname) autostart.sh in  -- " >> ~/.local/share/qtile/qtile.log
 
 #
 # Xfce4
@@ -69,13 +69,13 @@ sh -c "systemctl --user start xfce4-notifyd.service 2>/dev/null || exec /usr/lib
 #
 
 # enable fcitx5
-/usr/bin/fcitx5 -d &
+# /usr/bin/fcitx5 -d &
 
 # enable Picom
 /usr/bin/picom --daemon --log-file ~/.local/share/picom/picom.log &
 
 
-echo '-- autostart.sh out -- ' >>~/.local/share/qtile/qtile.log
+echo "-- $(hostname) autostart.sh out -- " >> ~/.local/share/qtile/qtile.log
 
 
 #
