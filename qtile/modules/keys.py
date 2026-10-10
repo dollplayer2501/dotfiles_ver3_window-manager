@@ -89,7 +89,7 @@ keys = [
 
   Key([MOD4], TAB,    lazy.next_layout(),            desc = 'Toggle between layouts'),
   Key([MOD4], SPACE,  lazy.layout.next(),            desc = 'Move normal window focus to other window'),
-  Key([MOD4], RETURN, lazy.function(spawn_by_group), desc = 'Spawn app by group, kitty, brave, thunar'),
+  Key([MOD4], RETURN, lazy.function(spawn_by_group), desc = 'Spawn app by group, kitty, firefox, thunar'),
   Key([MOD4, SHIFT], SPACE, lazy.function(focus_next_floating), desc = 'Move floating window focus to other window'),
 
 
