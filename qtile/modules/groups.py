@@ -102,8 +102,13 @@ groups = [
     ],
     matches = [
       # TODO: Is this function not enabled when starting from Thunar?
+      # NOTE: Did it get resolved, by any chance?
       Match(wm_class = 'libreoffice-startcenter'),
+      Match(wm_class = 'libreoffice'),
       Match(wm_class = 'libreoffice-writer'),
+      Match(wm_class = 'libreoffice-calc'),
+      Match(wm_class = 'libreoffice-impress'),
+      Match(wm_class = 'soffice'),
 
       Match(wm_class = 'Gimp'),
       Match(wm_class = 'Inkscape'),
