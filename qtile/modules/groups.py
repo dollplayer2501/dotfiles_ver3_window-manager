@@ -83,13 +83,12 @@ groups = [
   Group(screen_affinity = 0, position = 4, name = '4', label = '4.tool',
     layouts = [
       layout.MonadWide(**layout_setting_monadWide),
-      layout.Max(**layout_setting_max),
       layout.MonadTall(**layout_setting_monadTall),
+      layout.Max(**layout_setting_max),
       layout.Floating(**layout_setting_floating),
     ],
     matches = [
       Match(wm_class = 'Thunar'),
-      Match(wm_class = 'org.gnome.Nautilus'),
     ],
     **group_defaults,
   ),
