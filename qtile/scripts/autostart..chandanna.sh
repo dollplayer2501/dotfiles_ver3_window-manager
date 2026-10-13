@@ -30,11 +30,6 @@ echo "-- $(hostname) autostart.sh in  -- " >> ~/.local/share/qtile/qtile.log
 #   xscreensaver.desktop
 /usr/bin/xfce4-screensaver &
 
-# blueman, bluez
-#  bluetooth.service
-## /usr/bin/blueman-applet &
-
-
 # AT-SPI D-Bus Bus
 #   at-spi-dbus-bus.desktop
 /usr/lib/at-spi-bus-launcher --launch-immediately &
@@ -42,7 +37,6 @@ echo "-- $(hostname) autostart.sh in  -- " >> ~/.local/share/qtile/qtile.log
 # xfce-polkit-gnome-authentication-agent-1.desktop
 #   PolicyKit Authentication Agent
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-
 
 # xfce4-notifyd.desktop
 #  Xfce Notification Daemon
@@ -59,20 +53,22 @@ sh -c "systemctl --user start xfce4-notifyd.service 2>/dev/null || exec /usr/lib
 #  User folders update
 /usr/bin/xdg-user-dirs-gtk-update &
 
-# nm-applet.desktop
-#  NetworkManager Applet
-/usr/bin/nm-applet &
-
 
 #
+# Changed to launch via `dex` as follows, Launches the desktop file in `~/.config/autostart`.
+# Note that `dex` does not launch in Qtile, so it must be started via a hook.
+#  - blueman-applet
+#     It launches automatically by default, but since it is not needed, I will prevent it from starting up.
+#  - firewall-applet
+#     In `~/.config/autostart/firewall-applet.desktop`, the configuration is set to not launch the application.
+#     I am intentionally changing the setting to enable it to launch.
+#  - nm-applet
+#     It appears to be running even in the default state.
+#  - Fcitx5
+#     Does it NOT start up automatically in the default state?
+#  - Picom
+#     In the default state, is it not possible to specify things like the log file storage location?
 #
-#
-
-# enable fcitx5
-# /usr/bin/fcitx5 -d &
-
-# enable Picom
-/usr/bin/picom --daemon --log-file ~/.local/share/picom/picom.log &
 
 
 echo "-- $(hostname) autostart.sh out -- " >> ~/.local/share/qtile/qtile.log
