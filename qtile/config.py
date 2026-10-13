@@ -50,6 +50,7 @@ from modules.layouts import layouts
 from modules.screens_default_setting import screens
 # from modules.screens_none import screens
 from modules.floating import floating_layout
+from modules.scratchpad import groups, keys
 from modules.mouse import mouse
 
 
