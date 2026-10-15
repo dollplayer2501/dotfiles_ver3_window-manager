@@ -93,4 +93,83 @@ workspace_main = ['1', '2', '3', '4', '5', '9',]
 workspace_sub = ['6', '7', '8',] # This does not use
 
 
+#
+#
+#
+
+keychord_z_dic = {
+  'b': {
+    'command': 'firefox',
+    'description': 'Run web browser',
+  },
+  'm': {
+    'command': 'thunderbird',
+    'description': 'Run mailer',
+  },
+  'p': {
+    'command': 'keepassxc',
+    'description': 'Run password manager',
+  },
+  'f': {
+    'command': 'thunar',
+    'description': 'Run file explorer',
+  },
+  'v': {
+    'command': 'vlc',
+    'description': 'Run video player',
+  },
+
+  'g': {
+    'command': 'gimp',
+    'description': 'Run raster graphic manipulation',
+  },
+  'i': {
+    'command': 'inkscape',
+    'description': 'Run vector graphic manipulation',
+  },
+
+  'o': {
+    'command': 'libreoffice',
+    'description': 'Run office suite',
+  },
+  'n': {
+    'command': 'notable',
+    'description': 'Run notebook',
+  },
+  'z': {
+    'command': 'mousepad',
+    'description': 'Run memo',
+  },
+
+  't': {
+    'command': 'kitty',
+    'description': 'Run terminal',
+  },
+  's': {
+    'command': 'flatpak run com.valvesoftware.Steam',
+    'description': 'Run gaming platform',
+  },
+}
+
+keychord_z_sort = dict(sorted(keychord_z_dic.items()))
+
+keychord_z_str  = '<span font="Monospace" font-size="xx-large">'
+keychord_z_str += '<span font-weight="bold">Mod4 + z is...' + '</span>' + "\n\n"
+keychord_z_str += "\n".join(f"{k}: {v['description']}, {v['command']}" for k, v in keychord_z_sort.items())
+keychord_z_str += '</span>'
+
+#
+# TODO: 2026-10-15
+#   There ought to be a smarter way to go about this, but for now, I’ll set that aside.
+#
+keychord_x_str  = '<span font="Monospace" font-size="xx-large">'
+keychord_x_str += '<span font-weight="bold">Mod4 + x is...' + '</span>' + "\n"
+keychord_x_str += 'q: Logout' + "\n"
+keychord_x_str += 'r: Reload the config' + "\n"
+keychord_x_str += 'f: Run Font manager' + "\n"
+keychord_x_str += 'g: Run Gparted' + "\n"
+keychord_x_str += 'x: Run Xfce4 Settings' + "\n"
+keychord_x_str += '</span>' + "\n"
+
+
 ##

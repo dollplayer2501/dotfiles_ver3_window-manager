@@ -8,7 +8,12 @@ https://docs.qtile.org/en/stable/manual/config/keys.html
 from libqtile.lazy import lazy
 from libqtile.config import Key, KeyChord
 #
-from modules.variables import MOD4, CONTROL, SHIFT, TAB, SPACE, RETURN, UP, DOWN, LEFT, RIGHT
+from modules.variables import (
+  MOD4, CONTROL, SHIFT, TAB, SPACE, RETURN, UP, DOWN, LEFT, RIGHT,
+  keychord_z_dic,
+  keychord_z_str,
+  keychord_x_str,
+)
 from modules.functions import focus_next_floating, spawn_by_group
 from modules.dmenu_power_menu import dmenu_power_menu
 
@@ -113,29 +118,37 @@ keys = [
 
 
   KeyChord([MOD4], 'z', [
-      # Web Browser
-      Key([],      'b', lazy.spawn('firefox'), desc = 'Run Firefox'),
+      # TODO: 2026-10-15
       # Key([SHIFT], 'b', lazy.spawn('firefox --private-window about:blank'), desc = 'Run Firefox, private'),
+      # Implementation is possible, but it is not being handled correctly by gen-keybinding-img.
+
+      # TODO: 2026-10-15
+      #   Isolate the `keychord` functionality—in other words, move it into a separate file.
+
+      # Web Browser
+      Key([], 'b', lazy.spawn(keychord_z_dic['b']['command']), desc = keychord_z_dic['b']['description']),
       # Password Manager
-      Key([],      'p', lazy.spawn('keepassxc'), desc = 'Run KeepassXC'),
+      Key([], 'p', lazy.spawn(keychord_z_dic['p']['command']), desc = keychord_z_dic['p']['description']),
       # Mailer
-      Key([],      'm', lazy.spawn('thunderbird'), desc = 'Run Thunderbird'),
+      Key([], 'm', lazy.spawn(keychord_z_dic['m']['command']), desc = keychord_z_dic['m']['description']),
       # Filer
-      Key([],      'f', lazy.spawn('thunar'), desc = 'Run Thunar'),
+      Key([], 'f', lazy.spawn(keychord_z_dic['f']['command']), desc = keychord_z_dic['f']['description']),
       # Video
-      Key([],      'v', lazy.spawn('vlc'), desc = 'Run VLC'),
+      Key([], 'v', lazy.spawn(keychord_z_dic['v']['command']), desc = keychord_z_dic['v']['description']),
       # Graphic, Raster format
-      Key([],      'g', lazy.spawn('gimp'), desc = 'Run Gimp'),
+      Key([], 'g', lazy.spawn(keychord_z_dic['g']['command']), desc = keychord_z_dic['g']['description']),
       # Graphic, Vector format
-      Key([],      'i', lazy.spawn('inkscape'), desc = 'Run Inkscape'),
+      Key([], 'i', lazy.spawn(keychord_z_dic['i']['command']), desc = keychord_z_dic['i']['description']),
       # Office
-      Key([],      'o', lazy.spawn('libreoffice'), desc = 'Run LibreOffice'),
+      Key([], 'o', lazy.spawn(keychord_z_dic['o']['command']), desc = keychord_z_dic['o']['description']),
       # Terminal
-      Key([],      't', lazy.spawn('kitty'), desc = 'Run Kitty'),
+      Key([], 't', lazy.spawn(keychord_z_dic['t']['command']), desc = keychord_z_dic['t']['description']),
       #
-      Key([],      'n', lazy.spawn('notable'), desc = 'Run Notable'),
-      Key([],      's', lazy.spawn('flatpak run com.valvesoftware.Steam'), desc = 'Run Steam'),
-      Key([],      'z', lazy.spawn('mousepad'), desc = 'Run Mousepad'),
+      Key([], 'n', lazy.spawn(keychord_z_dic['n']['command']), desc = keychord_z_dic['n']['description']),
+      Key([], 's', lazy.spawn(keychord_z_dic['s']['command']), desc = keychord_z_dic['s']['description']),
+      Key([], 'z', lazy.spawn(keychord_z_dic['z']['command']), desc = keychord_z_dic['z']['description']),
+      #
+      Key([], 'h', lazy.spawn(['yad', '--text', keychord_z_str, '--button="OK"', '--fontname="Monospace 20"', ]), desc = 'Help!'),
     ],
     mode = False,
     name = 'Applications',
@@ -147,10 +160,15 @@ keys = [
   #   It works as a Qtile feature.
   #   However, it seems that the `Mod4 + Z` and `Mod4 + X` keybindings aren't being captured by `gen-keybinding-img`.
   #   The `KeyChord` bindings shown below are mapped correctly.
-  KeyChord([MOD4], 'X', [
-      Key([],      'q', lazy.shutdown(),      desc = 'Logout session'),
-      Key([],      'r', lazy.reload_config(), desc = 'Reload the config'),
-      Key([],      'x', lazy.spawn('xfce4-settings-manager'), desc = 'Run Xfce4 Settings'),
+  KeyChord([MOD4], 'x', [
+      Key([], 'q', lazy.shutdown(),      desc = 'Logout session'),
+      Key([], 'r', lazy.reload_config(), desc = 'Reload the config'),
+      #
+      Key([], 'f', lazy.spawn('font-manager'), desc = 'Run Font manager'),
+      Key([], 'g', lazy.spawn('gparted'), desc = 'Run Gparted'),
+      Key([], 'x', lazy.spawn('xfce4-settings-manager'), desc = 'Run Xfce4 Settings'),
+      #
+      Key([], 'h', lazy.spawn(['yad', '--text', keychord_x_str, '--button="OK"', '--fontname="Monospace 20"', ]), desc = 'Help!'),
     ],
     mode = False,
     name = 'System',

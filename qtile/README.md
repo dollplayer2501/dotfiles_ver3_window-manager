@@ -11,7 +11,8 @@
 1. **Not** Using [qtile-extras](https://qtile-extras.readthedocs.io/en/stable/).  
     To be precise, I stopped using this.
 1. Using Vanilla [dmenu](https://tools.suckless.org/dmenu/), [dex](https://man.archlinux.org/man/extra/dex/dex.1.en).
-1. using `scrot` to take screenshots, but I call a Fish shell function that I created, [my_scrot_now](https://github.com/dollplayer2501/dotfiles_ver3_terminal/blob/main/fish/functions/my_scrot_now.fish) and [my_scrot_wait](https://github.com/dollplayer2501/dotfiles_ver3_terminal/blob/main/fish/functions/my_scrot_wait.fish).
+1. Using `scrot` to take screenshots, but I call a Fish shell function that I created, [my_scrot_now](https://github.com/dollplayer2501/dotfiles_ver3_terminal/blob/main/fish/functions/my_scrot_now.fish) and [my_scrot_wait](https://github.com/dollplayer2501/dotfiles_ver3_terminal/blob/main/fish/functions/my_scrot_wait.fish).
+1. Using `yad` for displaying KeyChord key bindings.
 1. It's imperfect, but I'm using a modified version of [gen-keybinding-img](https://docs.qtile.org/en/latest/manual/commands/keybindings.html).
 1. Notification-related functionality depends on the Xfce4 environment.
 1. Using [Raleway font](https://fonts.google.com/specimen/Raleway).
