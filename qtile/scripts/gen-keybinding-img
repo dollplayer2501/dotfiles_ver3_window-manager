@@ -195,6 +195,7 @@ class KeyboardPNGFactory:
         with context:
             context.set_source_rgb(1, 1, 1)
             context.paint()
+        context.select_font_face("Arial", cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_NORMAL,)
 
         self.add_logo(context)
 
@@ -302,7 +303,7 @@ class KeyboardPNGFactory:
         if key.key in CUSTOM_KEYS:
             c_width *= CUSTOM_KEYS[key.key]
 
-        context.set_font_size(16)
+        context.set_font_size(15)
         context.set_source_rgb(0, 0, 0)
         context.move_to(x, y)
         words = key.command.split(" ")
