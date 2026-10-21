@@ -112,6 +112,8 @@ groups = [
       Match(wm_class = 'steam'),
       Match(wm_class = 'Virt-manager'),
       Match(wm_class = 'GParted'),
+      # NOTE: Is something off?
+      # Match(wm_class = 'font-manager'),
     ],
     **group_defaults,
   ),
