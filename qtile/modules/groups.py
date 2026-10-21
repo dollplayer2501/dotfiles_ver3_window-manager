@@ -100,8 +100,6 @@ groups = [
       layout.Floating(**layout_setting_floating),
     ],
     matches = [
-      # TODO: Is this function not enabled when starting from Thunar?
-      # NOTE: Did it get resolved, by any chance?
       Match(wm_class = 'libreoffice-startcenter'),
       Match(wm_class = 'libreoffice'),
       Match(wm_class = 'libreoffice-writer'),

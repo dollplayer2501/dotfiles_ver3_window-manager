@@ -66,6 +66,10 @@ chord_args = {
       Theme_Colors['Red'],
       Theme_Colors['DarkBlue_default'],
     ),
+    'Dropdown': (
+      Theme_Colors['Purple'],
+      Theme_Colors['DarkBlue_default'],
+    ),
   },
 }
 
