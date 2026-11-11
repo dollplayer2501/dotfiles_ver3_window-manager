@@ -4,8 +4,6 @@ Functions
 
 A group of functions that I may be using on my own.
 Each individual function needs to be reviewed.
-
-TODO: Adding Docstrings to individual functions?
 """
 
 import subprocess

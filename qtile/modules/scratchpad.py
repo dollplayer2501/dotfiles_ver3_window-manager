@@ -49,6 +49,11 @@ keys.extend([
 
   KeyChord([MOD4], 'c', [
       Key([], 't', lazy.group['scratchpad'].dropdown_toggle('term'), desc = 'Dropdown termiinal'),
+
+      #
+      # TODO: 2026-11-11
+      #   It is highly likely that this feature is not enabled.
+      #
       Key([], 'f', lazy.group['scratchpad'].dropdown_toggle('filer'), desc = 'Dropdown file explorer'),
     ],
     mode = False,

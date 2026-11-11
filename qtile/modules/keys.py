@@ -16,6 +16,7 @@ from modules.variables import (
 )
 from modules.functions import focus_next_floating, spawn_by_group
 from modules.dmenu_power_menu import dmenu_power_menu
+from modules.dmenu_clipmenu_menu import dmenu_clipmenu_menu
 
 
 keys = [
@@ -99,8 +100,6 @@ keys = [
 
 
   Key([MOD4],          'r', lazy.spawncmd(),      desc = 'Spawn a command using a prompt widget'),
-  # TODO:
-  #  Distinguishing between success and failure when reloading Qtile might be difficult, but should we issue a notification?
   Key([MOD4, CONTROL], 'r', lazy.reload_config(), desc = 'Reload the config'),
   Key([MOD4, CONTROL], 'q', lazy.shutdown(),      desc = 'Logout session'),
   Key([MOD4],          'd', lazy.function(dmenu_power_menu), desc = 'Run power menu'),
@@ -115,6 +114,8 @@ keys = [
   #      https://github.com/dollplayer2501/dotfiles_ver3_terminal/blob/main/fish/functions/my_scrot_wait.fish
   Key([MOD4, CONTROL], 'p', lazy.spawn("fish -c 'my_scrot_now'"),  desc = 'Print screen now'),
   Key([MOD4, CONTROL], 'i', lazy.spawn("fish -c 'my_scrot_wait'"), desc = 'Print screen after 10 sec'),
+
+  Key([MOD4, CONTROL], 'v', lazy.function(dmenu_clipmenu_menu), desc = 'Clipboard history'),
 
 
   KeyChord([MOD4], 'z', [
